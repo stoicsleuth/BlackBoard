@@ -1,0 +1,29 @@
+mixin storyForm(story ={})
+    form(action=`/add/${story._id || ''}` method="POST" class="card" enctype="multipart/form-data")
+        label(for="name") Name your story
+        input(type="text" name="name" value=story.name)
+        label(for="photo") Upload Cover Photo
+            input(type="file" name="photo" accept="image/png, image/jpeg, image/gif")
+            if story.photo 
+                img(src=`/uploads/${story.photo}` alt=story.name width=200)
+        h2 Compose your masterpiece
+        textarea(id="blog" name='content')
+
+        - var choices=['Fiction','Technology','Entertainment','Lifestyle','Sports','Philosophy'];
+        - const tags= story.tags || []
+        - let difference = tags.filter(x => !choices.includes(x));
+        - var choices = choices.concat(difference);
+        ul.tags 
+            each choice in choices 
+                .tag.tag__choice
+                    input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice))) 
+                    label(for=choice)=choice
+            .tag.tag__choice
+                input(type='text' id='choice' class='mychoice' placeholder='YOUR OWN TAG' name='' value='')
+        .submit-buttons
+            input(type="submit" value ="Submit" class="button" formaction=`/add/${story._id || ''}`)
+            if story.author && story.author.equals(user._id)
+                input(type="submit" value="Delete Story" class="button" formaction=`/story/${story._id}/delete`)
+        
+        
+

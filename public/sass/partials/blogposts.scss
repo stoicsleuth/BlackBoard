@@ -1,0 +1,151 @@
+.header-blog{
+    text-align: center;
+    background-attachment: fixed;
+    /* font-weight: 700; */
+    font-size: 1.7em;
+    position: initial;
+    height: 100vh;
+    color: white;
+    display: flex;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(/uploads/9a6a0861-00fe-4078-b030-172622806b76.jpeg);
+    justify-content: center;
+    align-items: center;
+}
+
+.content-blog{
+    margin-top: 40px;
+    max-width: 1000px;
+    overflow: hidden;
+    border-radius: none;
+    box-shadow:none;
+    margin: auto;
+    z-index: 100;
+    background-color: white;
+    margin-top: 5%;
+    position: relative;
+}
+.user-photo img{
+    border-radius: 50px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.user-name h1{
+    font-size: 2rem;
+    font-family: 'Raleway';
+    margin-left: 10px;
+}
+
+.blog-content p{
+    font-family: 'Open Sans';
+    font-size: 2rem;
+    line-height: 2em;
+    text-align: left;
+}
+
+.blog-content p img{
+    display: flex;
+    margin:auto;
+}
+.user-info{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.photo-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blog-content{
+    padding: 20px;
+    text-align: center;
+}
+
+.tags-blog{
+    overflow-y: scroll;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    -ms-overflow-style: none;
+}
+.tags-blog::-webkit-scrollbar{
+    display: none;
+}
+.tags-blog li{
+    padding: 10px 21px;
+    background: #cac6c5;
+    color: #545353;
+    border-radius: 50px;
+    font-family: 'Open Sans';
+    margin-right: 25px;
+    transition: all 0.4s ease;
+}
+.tags-blog li a{
+    color: inherit;
+}
+.tags-blog li:hover{
+    background: #ff3d28;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+#share-buttons img {
+    width: 45px;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0;
+    // display: inline;
+}
+#share-buttons-responsive{
+    display: none;
+}
+#share-buttons-responsive img{
+    width: 45px;
+    padding: 5px;
+    border: 0;
+    box-shadow: 0;
+}
+
+.user-name{
+    font-family: 'Raleway';
+    /* color: black; */
+    font-size: 1.2em;
+}
+
+@media(max-width:800px) {
+    .user-info{
+        justify-content: center;
+    }
+    .user-name{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+}
+
+
+
+@media(max-width:424px){
+    .user-info{
+        flex-direction: column;
+    }
+    #share-buttons{
+        display: none;
+    }
+    #share-buttons-responsive{
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (max-width:600px) {
+    .blog-content p{
+        font-size: 17px;
+        line-height: 1.8666;
+    }
+}

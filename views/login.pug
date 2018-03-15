@@ -1,0 +1,11 @@
+extends layout
+
+include mixins/_loginForm
+include mixins/_loginFormGoogle
+include mixins/_forgotPassword
+block content
+    .inner.login-form
+        //- h2=title
+        +loginForm()
+        +loginFormGoogle()
+        +forgotPassword()

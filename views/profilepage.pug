@@ -1,0 +1,40 @@
+extends layout
+
+include mixins/_storyCard
+
+block content
+  .inne
+    .wrap-profile
+      .user-info
+        if userThis.googleProfilePhoto
+          img(src=`${userThis.googleProfilePhoto}`)
+        else 
+          img(src=`${userThis.gravatar}+&d=retro`)
+        h3!=userThis.name
+        h4!=userThis.about
+        if user && user.followers
+          -const followStrings=user.followers.map((obj)=>obj.toString());
+          -const followClass = followStrings.includes(userThis._id.toString()) ? 'following' :'';
+          -const followText = followStrings.includes(userThis._id.toString()) ? 'Following' :'Follow';  
+        if user && user.slug!=userThis.slug
+          form.follow-user(action=`/api/v1/profile/${userThis._id}/follow` method="POST" )
+            button.follow-button(type="submit" name="follow" value="Follow" class=followClass)=followText
+        if user
+          .user-buttons
+            if userThis.slug==user.slug
+              a(href="/account") Edit Account
+              a(href=`/profile/${user.slug}/followers`) Following
+      .user-stories
+        .story-menu
+          h2=`${title}'s stories`
+        .stores
+          if stories
+            each story in stories
+              +storyCard(story)
+        script.
+          let story = document.querySelectorAll('.store');
+          document.querySelector('.inner').style.padding= '0px';
+          for(let i=0;i<story.length;i++)
+            story[i].style.width = 'calc(30% - 1.2rem)';
+        if(!stories)
+            p=`${userThis.name} hasn't published any story. Come back later to check!`

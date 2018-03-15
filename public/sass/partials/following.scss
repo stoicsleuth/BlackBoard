@@ -1,0 +1,20 @@
+.follow-card{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.follow-card img{
+    border-radius: 50px;
+    margin-right: 10px;
+    width: 68px;
+    height: 68px;
+}
+.follow-card p{
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Raleway';
+    font-size: 1.5em;
+}
+.follow-card p a{
+    color: black;
+}

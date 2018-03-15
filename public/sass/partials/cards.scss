@@ -1,0 +1,449 @@
+
+// Variables
+$regal-blue: #034378;
+$san-juan: #2d4e68;
+$bermuda: #77d7b9;
+$white: #fff;
+$black: #000;
+$open-sans: 'Open Sans',
+sans-serif;
+// clear-fix mixin
+@mixin cf {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
+.submit-buttons{
+  display: flex;
+}
+
+.card-content .adjust-height{
+  font-size: 1.5em !important;
+  min-height: 6em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 10px;
+  color: white;
+}
+// Base styles
+.card-content {
+    // float: left;
+    padding: 0 1.7rem;
+    /* width: 38%; */
+    /* height: 50%; */
+  .menu-content {
+    @include cf;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      display: inline-block;
+    }
+    a {
+      color: $white;
+    }
+    span {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: 'Open Sans';
+      transform: translate(-50%, 0);
+    }
+  }
+  .wrapper {
+    overflow: hidden;
+    background-color: $white;
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 19px 38px rgba($black, 0.3), 0 15px 12px rgba($black, 0.2);
+    &:hover {
+      .data {
+        transform: translateY(25px);
+      }
+    }
+  }
+  .data {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateY(calc(70px + 1em));
+    transition: transform 0.3s;
+    .content {
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+      position: relative;
+      z-index: 1;
+    }
+  }
+  .author {
+    font-size: 15px;
+  }
+  .title-content {
+    min-height: 5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 2em !important;
+    color: white;
+    // margin-bottom: 2em;
+  }
+  .title-content a{
+      color:white;
+  }
+ 
+  .edit-icon img{
+    width: 24px;
+  }
+  .text {
+    min-height: 80px;;
+    margin: 0px;
+    font-weight: 300;
+    font-family: 'Open Sans';
+    font-size: 1.3em;
+  }
+  input[type='checkbox'] {
+    display: none;
+  }
+  input[type='checkbox']:checked + .menu-content {
+    transform: translateY(-60px);
+  }
+}
+
+.date span{
+    margin-right: 5px;
+}
+
+
+// Second example styles
+.example-2 .wrapper {
+    background-image: url(https://tvseriescritic.files.wordpress.com/2016/10/stranger-things-bicycle-lights-children.jpg) center/cover no-repeat;
+    background-size: cover;
+
+}
+
+.example-2 .wrapper:before{
+  background-color: rgba(255, 0, 0, 0.3);
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+  .tags-first{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: safe;
+    margin-left: auto;
+    background-color: crimson;
+    padding: 9px 22px;
+  }
+  .tags-first .tag{
+    font-size: 12px;
+    margin: auto;
+  }
+  .example-2 .wrapper:hover .menu-content span {
+    -webkit-transform: translate(-50%, -10px);
+            transform: translate(-50%, -10px);
+    opacity: 1;
+  }
+  .example-2 .header {
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+  }
+  .example-2 .header::before, .example-2 .header::after {
+    content: '';
+    display: table;
+  }
+  .example-2 .header::after {
+    clear: both;
+  }
+  .example-2 .header .date {
+    z-index: 10;
+    float: left;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .example-2 .menu-content {
+    float: right;
+  }
+  .example-2 .menu-content li {
+    margin: 0 5px;
+    position: relative;
+  }
+  .example-2 .menu-content span {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+  }
+  .example-2 .data {
+    color: #fff;
+    -webkit-transform: translateY(calc(98px + 6em));
+             transform: translateY(calc(98px + 6em));
+  }
+  .example-2 .title a {
+    color: #fff;
+  }
+  .example-2 .button-more {
+    display: block;
+    width: 100px;
+    // margin: 2em auto 1em;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1;
+    position: relative;
+    font-weight: 700;
+  }
+  .example-2 .button-more::after {
+    content: '\2192';
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .example-2 .button-more:hover::after {
+    -webkit-transform: translate(5px, -50%);
+            transform: translate(5px, -50%);
+    opacity: 1;
+  }
+  .story-menu h2{
+    padding: 14px;
+    z-index: 100;
+    color: white;
+    position: relative;
+  }
+  .story-menu h2::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -100;
+    height: 100%;
+    left: 0;
+    background: #ff3d28;
+    -ms-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+
+  .story-menu{
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+
+
+  // Syles for displaying individual story pages.
+
+  .header-blog{
+    position: absolute;
+    top: 0;
+    padding: 0px;
+    overflow: hidden;
+    margin: 0px;
+    height: 60vh;
+}
+
+.header-blog img{
+    z-index: -100;
+    display: inline-block;
+    width: 200%;
+    filter: blur(50px) brightness(0.8);
+}
+.content-blog{
+    overflow: hidden;
+    border-radius:10px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+    margin: 20px 13%;
+    z-index: 100;
+    background-color: white;
+    margin-top: 10%;
+    position: relative;
+}
+
+.banner{
+    display: flex;
+}
+.bannerimg img{
+    max-width: 100%;
+}
+.bannertext{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    justify-content: center;
+}
+.bannertext a{
+    padding: 10px;
+    background: linear-gradient(to right, #da4453, #89216b);
+    max-width: 77%;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 28px;
+}
+.desc{
+    margin-right: 100px;
+    max-width: 65%;
+    font-size: 1.1em;
+}
+.details{
+    padding: 20px;
+    display: flex;
+}
+
+.user img{
+    height: 50px;
+    widows: 50px;
+}
+
+#map{
+    width: 100%;
+    height: 300px;
+}
+
+@media (max-width:600px){
+    .submit-buttons{
+      display: block;
+    }
+    .card-content .text{
+      text-align: center;
+    }
+    .author{
+      text-align: center;
+    }
+    .banner{
+        flex-direction: column;
+    }
+    .bannertext{
+        font-size: 0.8em;
+    }
+    .details{
+        flex-direction: column;
+    }
+    .desc{
+        margin-right:auto;
+        max-width: initial;
+    }
+
+    .user{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+}
+
+.data-bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form h2:nth-child(1){
+  padding: 14px;
+    z-index: 100;
+    color: white;
+    position: relative;
+}
+
+.login-form h2:nth-child(1)::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -100;
+  height: 100%;
+  left: 0;
+  background: #ff3d28;
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+.google-button {
+  outline: none;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-width: 0;
+  background: white;
+  color: #737373;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+  
+  &:focus,
+  &:hover {
+    box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+  }
+  
+  &:active {
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms;
+  }
+}
+    
+.google-button__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+}
+.google-button__text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto',arial,sans-serif;
+}

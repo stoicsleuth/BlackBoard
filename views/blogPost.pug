@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= `${title} | ${h.siteName}`
+    link(rel='stylesheet', href='/dist/style.css')
+    link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css")
+    script(src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js")
+  body
+    !=blog_html
+    script.
+      document.querySelector('.top').style.position='fixed';
+      document.quertSelector('.top').style.background='transparent';

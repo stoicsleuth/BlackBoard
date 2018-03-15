@@ -1,0 +1,8 @@
+.top{
+    width: 100%;
+    /* display: flex; */
+    position: fixed;
+    background: none;
+    /* background: #ff3d28; */
+    padding: 20px 80px;
+}

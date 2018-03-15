@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .inner
+    .heading
+      h2='Compose your masterpiece.'
+    form.form(action="/blog", method="POST")
+      input(type="text" name="name")
+      textarea(id="blog" name='blog')
+      button.button(type='submit' value='submit' )
+    script.
+      var simplemde = new SimpleMDE({ element: document.getElementById("blog") });

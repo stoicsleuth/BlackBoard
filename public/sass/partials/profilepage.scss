@@ -1,0 +1,132 @@
+.wrap-profile{
+    padding-left: 30vw;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    position: relative;
+    width: auto;
+    overflow: auto;
+}
+
+.wrap-profile .user-info{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: -webkit-sticky;
+    position: fixed;
+    /* position: relative; */
+    width: 30vw;
+    height: 100vh;
+    top: 0;
+    // z-index: -100;
+    left: 0;
+    background: url(https://source.unsplash.com/random);
+    background-size: cover;
+}
+
+.wrap-profile .user-info:before{
+    background-color: rgba(255, 0, 0, 0.3);
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+}
+
+.wrap-profile .user-info img{
+    height: 63px;
+    border-radius: 50px;
+}
+
+.wrap-profile .user-info img, .wrap-profile .user-info h3 , .wrap-profile .user-info h4{
+    color: white;
+    z-index: 100;
+}
+
+.user-stories{
+    width:70vw;
+}
+
+.user-info a{
+    padding: 11px 21px;
+    background: white;
+    z-index: 100;
+    color: #4a4848;
+    border-radius: 50px;
+}
+
+.user-info a:nth-child(1){
+    margin-right: 15px;
+}
+.user-info a:nth-child(2){
+    margin-left: 15px;
+}
+
+.user-stories p{
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 1.5em;
+}
+
+.follow-button{
+    outline: none;
+    padding: 10px 16px;
+    background: white;
+    border-radius: 40px;
+    border-color: white;
+    /* z-index: 100000000; */
+    font-family: 'Open Sans';
+}
+.follow-user{
+    z-index: 100;
+}
+.following{
+    cursor: pointer;
+    background: #ff3d28;
+    border-color: #ff3d28;
+    color: white;
+}
+.user-buttons{
+    z-index: 1;
+}
+
+
+@media(max-width:1030px) {
+    .wrap-profile{
+        flex-direction: column;
+        padding-left: 0px;
+        // width:
+    }
+    .wrap-profile .user-info{
+        height: 45vh;
+        width: 100%;
+        position: relative;
+    }
+    .wrap-profile .user-stories{
+        height: auto;
+        width:100%;
+    }
+    .stores{
+        // flex-direction: column;
+        align-items: center;
+    }
+    .store{
+        width: 100% !important;
+    }
+    
+}
+
+@media(max-width:450px){
+    .story-menu{
+        font-size:1.3rem;
+    }
+}

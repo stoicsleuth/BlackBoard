@@ -1,0 +1,56 @@
+extend layout
+
+block content
+    .header-blog(style=`background-image:url(/uploads/${story.photo || 'story.jpeg'})`)
+        h1=story.name
+    .content-blog
+      .user-info 
+        .photo-name
+          .user-photo
+            img(src=story.author.googleProfilePhoto || `${story.author.gravatar}&d=retro`)
+          .user-name
+            a(href=`/profile/${story.author.slug}`)=`by ${story.author.name}`
+        #share-buttons
+          a(href=`http://www.facebook.com/sharer.php?u=http://chaibreak.club/story/${story.slug}` target="_blank")
+            img(src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook")
+          a(href=`http://reddit.com/submit?url=ttp://chaibreak.club/story/${story.slug}&amp;title=Simple Share Buttons` target="_blank")
+            img(src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit")
+          
+      
+         
+      .blog-content
+        p!=blog_html
+        br
+        ul.tags-blog
+          each t in story.tags
+            li
+              a(href=`/tags/${t}`)=t
+        #share-buttons-responsive
+          a(href=`http://www.facebook.com/sharer.php?u=http://chaibreak.club/story/${story.slug}` target="_blank")
+            img(src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook")
+          a(href=`http://reddit.com/submit?url=ttp://chaibreak.club/story/${story.slug}&amp;title=Simple Share Buttons` target="_blank")
+            img(src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit")
+        script.
+          document.querySelector('.top').style.position='fixed';
+          document.querySelector('.top').style.background='transparent';
+          document.querySelector('.top').style.width='100%';
+          window.onscroll = () => {
+            const nav = document.querySelector('.top');
+            if(this.scrollY >= 300) nav.style.background = '#ff3d28'; 
+            else nav.style.background = 'none';
+          };
+        #disqus_thread
+        script.
+          (function() { 
+          var d = document, s = d.createElement('script');
+          s.src = 'https://chaibreak.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+        noscript
+          | Please enable JavaScript to view the 
+          a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
+        //- .user
+        //-   p!=`Organized by ${owner}`
+        //-   img(src=ownerImageUrl)
+

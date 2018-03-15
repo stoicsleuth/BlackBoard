@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .inner
+    .story-menu
+      h2="Edit your account"
+    form(action="/account" method="POST")
+     label(for="name") Name
+     input(type="text" value=user.name name="name")
+     label(for="about") About You
+     input(type="text" value=user.about name="about")
+     if !user.googleProfilePhoto
+      label(for="email") Email
+      input(type="email" value=user.email name="email")
+     input.button(type="submit" value="Update account")

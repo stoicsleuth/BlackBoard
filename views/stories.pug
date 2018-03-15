@@ -1,0 +1,11 @@
+extends layout 
+
+include mixins/_storyCard
+
+block content
+  .inner
+    .story-menu
+      h2=title
+    .stores
+        each story in stories
+          +storyCard(story)

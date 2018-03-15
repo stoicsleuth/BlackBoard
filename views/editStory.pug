@@ -1,0 +1,15 @@
+extends layout
+include mixins/_storyForm
+
+
+block content
+    .inner.story-menu
+        
+        h2= title
+    +storyForm(story)
+    -let storyContent= `${story && story.content}`;
+    script.
+      var simplemde = new SimpleMDE({ element: document.getElementById("blog") });
+    if story
+        script.
+            simplemde.value(`#{storyContent}`);

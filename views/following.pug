@@ -1,0 +1,10 @@
+extend layout
+
+block content
+    .inner.story-menu
+        h2='Writers I follow'
+    each follow in user.followers
+        .follow-card
+            img(src=`${follow.googleProfilePhoto || follow.gravatar}`)
+            p
+                a(href=`/profile/${follow.slug}`)!=follow.name
